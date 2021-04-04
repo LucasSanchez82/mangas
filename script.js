@@ -1,4 +1,4 @@
-/*fetch('data.json')
+fetch('data.json')
 .then(response => response.json())
 .then(data => {
     console.log(data);
@@ -24,17 +24,17 @@ fetch("https://jikan1.p.rapidapi.com/meta/requests/anime/today", {
 .then(data => {
     console.log('a venir');
 	console.log(data);
-});*/
-fetch("https://jikan1.p.rapidapi.com/meta/requests/anime/today", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "779ee9983dmsh39e183cab204769p12c4e2jsn602e9fa0d995",
-		"x-rapidapi-host": "jikan1.p.rapidapi.com"
-	}
 })
-.then(response => {
-	console.log(response);
-})
-.catch(err => {
-	console.error(err);
-});
+// fetch("https://jikan1.p.rapidapi.com/meta/requests/anime/today", {
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-key": "779ee9983dmsh39e183cab204769p12c4e2jsn602e9fa0d995",
+// 		"x-rapidapi-host": "jikan1.p.rapidapi.com"
+// 	}
+// })
+// .then(response => {
+// 	console.log(response);
+// })
+// .catch(err => {
+// 	console.error(err);
+// });
