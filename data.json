@@ -183,7 +183,7 @@
         "title": "Sword Dance Online",
         "link": "https://www.scan-manga.com/8671/Sword-Dance-Online.html",
         "image": "https://www.scan-manga.com:8443/img/manga/Sword_Dance_Online_2_7066.jpg",
-        "actu": 20
+        "actu": 21
     },
     {
         "title": "The King Of BUG",
@@ -249,7 +249,7 @@
         "title": "Kubo-san wa Boku (Mobu) wo Yurusanai",
         "link": "https://www.scan-manga.com/6530/Kubo-san-wa-Boku-Mobu-wo-Yurusanai.html",
         "image": "https://www.scan-manga.com:8443/img/manga/Kubo-san_wa_Boku_(Mobu)_wo_Yurusanai_2_8244.jpg",
-        "actu": 49
+        "actu": 51
     },
     {
         "title": "Komi-san wa Komyushou Desu.",
@@ -261,7 +261,7 @@
         "title": "Shijou Saikyou no Daimaou, Murabito A ni Tensei suru",
         "link": "https://www.scan-manga.com/7978/Shijou-Saikyou-no-Daimaou-Murabito-A-ni-Tensei-suru.html",
         "image": "https://www.scan-manga.com:8443/img/manga/Shijou_Saikyou_no_Daimaou_Murabito_A_ni_Tensei_suru_2_3467.jpg",
-        "actu": 4
+        "actu": 5
     },
     {
         "title": "In a Different World with a Smartphone",
@@ -375,13 +375,13 @@
         "title": "SSS-Class Suicide Hunter",
         "link": "https://gs-nation.fr/manga/sss-class-suicide-hunter/",
         "image": "https://www.scan-manga.com:8443/img/manga/SSS-Class_Suicide_Hunter_2_1930.jpg",
-        "actu": 36
+        "actu": 37
     },
     {
         "title": "Arcane Sniper",
         "link": "https://gs-nation.fr/manga/arcane-sniper/",
         "image": "https://www.scan-manga.com:8443/img/manga/Arcane_Sniper_2_8377.jpg",
-        "actu": 0
+        "actu": 21
     },
     {
         "title": "Return of the Frozen Player",
@@ -417,7 +417,7 @@
         "title": "limit breaker",
         "link": "https://gs-nation.fr/manga/limit-breaker/",
         "image": "https://www.scan-manga.com:8443/img/manga/Limit_Breaker_2_959.jpg",
-        "actu": 0
+        "actu": 21
     },
     {
         "title": "Wizard of Arsenia",
@@ -429,7 +429,7 @@
         "title": "Realist Maou Niyoru Seiiki Naki Isekai Kaikaku",
         "link": "https://www.scan-manga.com/5625/Realist-Maou-Niyoru-Seiiki-Naki-Isekai-Kaikaku.html",
         "image": "https://www.scan-manga.com:8443/img/manga/Realist_Maou_Niyoru_Seiiki_Naki_Isekai_Kaikaku_2_3759.jpg",
-        "actu": 15
+        "actu": 16
     },
     {
         "title": "Sekai de Tada Hitori no Mamono Tsukai - Tenshoku Shitara Maou ni Machigawaremashita",
@@ -456,17 +456,38 @@
         "actu": 5
     },
     {
-        "title": "",
-        "link": "",
-        "image": "",
-        "actu": 0
+        "title": "Genkai Level 1 kara no Nariagari: Saijaku Level no Ore ga Isekai Saikyou ni Naru made",
+        "link": "https://www.scan-manga.com/7938/Genkai-Level-1-kara-no-Nariagari-Saijaku-Level-no-Ore-ga-Isekai-Saikyou-ni-Naru-made.html",
+        "image": "https://www.scan-manga.com:8443/img/manga/Genkai_Level_1_kara_no_Nariagari_Saijaku_Level_no_Ore_ga_Isekai_Saikyou_ni_Naru_made_2_2795.jpg",
+        "actu": 9
     },
+    {
+        "title": "Sekai de Tada Hitori no Mamono Tsukai - Tenshoku Shitara Maou ni Machigawaremashita",
+        "link": "https://www.scan-manga.com/9022/Sekai-de-Tada-Hitori-no-Mamono-Tsukai-Tenshoku-Shitara-Maou-ni-Machigawaremashita.html",
+        "image": "https://www.scan-manga.com:8443/img/manga/Sekai_de_Tada_Hitori_no_Mamono_Tsukai_-_Tenshoku_Shitara_Maou_ni_Machigawaremashita_2_5325.jpg",
+        "actu": 1.2
+    }
+    ,
+    {
+        "title": "Isekai Kenja no Tensei Musou - Game no Chishiki de Isekai Saikyou",
+        "link": "https://www.scan-manga.com/9061/Isekai-Kenja-no-Tensei-Musou-Game-no-Chishiki-de-Isekai-Saikyou.html",
+        "image": "https://www.scan-manga.com:8443/img/manga/Isekai_Kenja_no_Tensei_Musou_-_Game_no_Chishiki_de_Isekai_Saikyou_2_4672.jpg",
+        "actu": 1
+    },
+    {
+        "title": "I Have a Dragon in My Body",
+        "link": "https://www.scan-manga.com/7446/I-Have-a-Dragon-in-My-Body.html",
+        "image": "https://www.scan-manga.com:8443/img/manga/I_Have_a_Dragon_in_My_Body_2_6661.jpg",
+        "actu": 309
+    }
+    ,
     {
         "title": "",
         "link": "",
         "image": "",
         "actu": 0
-    },
+    }
+    ,
     {
         "title": "",
         "link": "",
