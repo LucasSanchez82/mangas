@@ -1,8 +1,8 @@
 fetch('data.json')
 .then(response => response.json())
 .then(data => {
-    console.log(data);
-    console.log(data.length);
+    // console.log(data);
+    // console.log(data.length);
     for (let i = 0; i < data.length; i++) {
         // document.querySelector('#container').innerHTML += '<br />';
         document.querySelector('#container').innerHTML += (
