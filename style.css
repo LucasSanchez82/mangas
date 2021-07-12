@@ -1,44 +1,59 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+body{
+    padding: 15px;
+}
+#container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+.model, .model>a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.new-model{
+    order: 0;
+}
+*{
+    margin: 0;
+    padding: 0;
 }
 body{
     background-color: rgb(78, 82, 117);
     
 }
-h2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 105px;
-    text-align: center;
-}
-h3{
-    min-width: 50px;
+.chapter{
+    max-width: 50px;
     margin: 10px 0;
     padding: 5px;
     text-align: center;
     color: aliceblue;
     background-color: rgb(78, 82, 117);
-    /* border: 2px solid aliceblue; */
+    border: none;
     border-radius: 10px;
 }
-#container{
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
- 
+.delete{
+    color: aliceblue;
+    align-self: flex-end;
+    font-style: italic;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.item{
-    display: flex;
+.model{
+    order: 5;
+    width: calc(25% - 3 * 2px);
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
     border-radius: 15px;
     padding: 10px;
     margin: 3px;
-    /* height: 100px; */
     background-color: rgb(33, 31, 54);
     font-size: 12px;
 }
@@ -50,13 +65,13 @@ a{
 a:visited{
     color: cadetblue;
 }
-img{
-    
-    height: 100%;  
-    max-width: 100%;
+img{ 
+    max-width: 130px;
+    margin-top: 15px;
+    height: 100%;
     border-radius: 5px;
 }
-.item:hover{
+.model:hover{
     cursor: pointer;
     animation: buttonAnimation 0.8s ease-in-out;
 }
@@ -73,8 +88,23 @@ img{
     border-radius: 50px;
     /* margin-bottom: 12px; Add some space below the input */
 }
+.add-model-input{
+    height: 20px;
+    border: none;
+    text-align: center;
+    border-radius: 5px;
+    width: 24%;
+    margin: 0;
+}
+input{
+    cursor: pointer;
+    width: 75px;
+    height: 20px;
+    margin: 5px;
+    text-align: center;
+    border-radius: 5px;
 
-
+}
 
 @keyframes buttonAnimation{
     0% {
@@ -91,17 +121,17 @@ img{
     }
   }
 @media screen and (max-width: 837px) {
-    #container {
-        grid-template-columns: repeat(4, 1fr);
+    .model {
+        width: calc(33% - 6px);
     }
   }
 @media screen and (max-width: 538px) {
-    #container {
-        grid-template-columns: repeat(2, 1fr);
+    .model {
+        width: calc(50% - 6px);
     }
-  } 
-  @media screen and (max-width: 388px) {
-    #container {
-        grid-template-columns: 1fr;
+} 
+@media screen and (max-width: 388px) {
+    .model {
+        width: 100%;
     }
-  } 
+} 

@@ -1,22 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="manga_favicon.ico" type="image/x-icon">
-    <title>liste mangas /webcomics</title>
+    <title> creer block manga 🙌 </title>
 </head>
 <body>
-    <h1>liste mangas/ webcomics</h1>
+    <header>  
+        <input type="text" id="myInput" onkeyup="searchBar()" placeholder="chercher un titre...">
+    </header>
+    <main>
+        <!-- create models -->
+        <div>
+            <input placeholder='name' type="text" class="add-model-input" id="name">
+            <input placeholder='link' type="text" class="add-model-input" id="link">
+            <input placeholder='image' type="text" class="add-model-input" id="image">
+            <input placeholder='chapter' type="number" class="add-model-input" id="chapter">
+        </div>
+        
+        <!-- download models -->
+        <div>
+            <input type="button" value="click" onclick=everyInputsAreOk() >
+            <input type="button" value="download" onclick=downloadJson() >
+        </div>
 
-    <input type="text" id="myInput" onkeyup="searchBar()" placeholder="chercher un titre...">
-
-    <div id="container">
-        <!-- <img src="" alt=""> -->
-    </div>
+        <div id="container"></div>
+    </main>
     <script src="script.js"></script>
-    <script src="searchBar.js"></script>
 </body>
 </html>
