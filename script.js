@@ -1,27 +1,28 @@
 function defaultModels() {
-        // générer le truc par defaut
-        fetch('data.json')
-        .then(response => response.json())
-        .then(data => {
-            for (let i = 0; i < data.length; i++) {
-                const el = data[i];
+    // générer le truc par defaut
+    fetch('data.json')
+    .then(response => response.json())
+    .then(data => {
+        for (let i = 0; i < data.length; i++) {
+            const el = data[i];
 
-                let newDiv, htmlLink, htmlName, htmlImage, htmlChapter, name, chapter, deleteModel;
-                deleteModel = "<span class='delete'>X</span>"
-                name = el.title;
-                image = el.image;
-                link = el.link;
-                chapter = el.actu;
-                newDiv = document.querySelector('#container').appendChild(document.createElement('div'))
-                newDiv.className += 'model'
-                
-                htmlName = `<h2 class='title'> ${name} </h2>`;
-                htmlImage = `<img class='illustration' src='${image}' alt="${name}" />`;
-                htmlChapter = `<input class='chapter' value='${chapter}' type="text">`;
-                htmlLink = `<a class='link' href='${link}' target='_blank'> ${htmlName} ${htmlImage} </a>`;
-                newDiv.innerHTML = deleteModel + htmlLink + htmlChapter;
-            }
-        });
+            let newDiv, htmlLink, htmlName, htmlImage, htmlChapter, name, chapter, deleteModel;
+            deleteModel = "<span class='delete'>X</span>"
+            name = el.title;
+            image = el.image;
+            link = el.link;
+            chapter = el.actu;
+            newDiv = document.querySelector('#container').appendChild(document.createElement('div'))
+            newDiv.className += 'model'
+            
+            htmlName = `<h2 class='title'> ${name} </h2>`;
+            htmlImage = `<img class='illustration' src='${image}' alt="${name}" />`;
+            htmlChapter = `<input class='chapter' value='${chapter}' type="text">`;
+            htmlLink = `<a class='link' href='${link}' target='_blank'> ${htmlName} ${htmlImage} </a>`;
+            newDiv.innerHTML = deleteModel + htmlLink + htmlChapter;
+        }
+        deleteItems();
+    });
 }
 
 function addModel(name, link, image, chapter){
@@ -103,5 +104,19 @@ function searchBar() {
         }
     }
 }
+function deleteItems(){
+    let deleteItems = document.querySelectorAll('.delete')
+    console.log(deleteItems)
+    for (let i = 0; i < deleteItems.length; i++) {
+        const el = deleteItems[i];
+        el.addEventListener('click', (click) => {
+            let elToDel = click.path[1]
+            let parentElToDel = elToDel.parentElement
+            parentElToDel.removeChild(elToDel)
+        })
+        
+    }
 
+}
 defaultModels();
+
