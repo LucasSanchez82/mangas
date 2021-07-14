@@ -41,6 +41,7 @@ body{
     border-radius: 10px;
 }
 .delete{
+    cursor: pointer;
     color: aliceblue;
     align-self: flex-end;
     font-style: italic;
@@ -72,7 +73,6 @@ img{
     border-radius: 5px;
 }
 .model:hover{
-    cursor: pointer;
     animation: buttonAnimation 0.8s ease-in-out;
 }
 

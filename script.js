@@ -6,27 +6,21 @@ function defaultModels() {
         for (let i = 0; i < data.length; i++) {
             const el = data[i];
 
-            let newDiv, htmlLink, htmlName, htmlImage, htmlChapter, name, chapter, deleteModel;
+            let  name, chapter, deleteModel;
             deleteModel = "<span class='delete'>X</span>"
             name = el.title;
             image = el.image;
             link = el.link;
             chapter = el.actu;
-            newDiv = document.querySelector('#container').appendChild(document.createElement('div'))
-            newDiv.className += 'model'
-            
-            htmlName = `<h2 class='title'> ${name} </h2>`;
-            htmlImage = `<img class='illustration' src='${image}' alt="${name}" />`;
-            htmlChapter = `<input class='chapter' value='${chapter}' type="text">`;
-            htmlLink = `<a class='link' href='${link}' target='_blank'> ${htmlName} ${htmlImage} </a>`;
-            newDiv.innerHTML = deleteModel + htmlLink + htmlChapter;
+
+            structurModel(name, image, link, chapter);
         }
         deleteItems();
     });
 }
-
-function addModel(name, link, image, chapter){
-    let localisation, createDiv, newDiv;
+function structurModel(name, image, link, chapter){
+    let localisation, createDiv, newDiv, deleteModel;
+    deleteModel = "<span class='delete'>X</span>"
     localisation = document.querySelector('#container');
     createDiv = document.createElement('div');   
     newDiv = localisation.appendChild(createDiv)
@@ -37,21 +31,25 @@ function addModel(name, link, image, chapter){
     htmlImage = `<img class='illustration' src='${image}' alt="${name}" />`;
     htmlChapter = `<input class='chapter' value=${chapter} type="number">`;
     htmlLink = `<a class='link' href='${link}' target='_blank'> ${htmlName} ${htmlImage} </a>`;
-    newDiv.innerHTML = htmlLink + htmlChapter;
+    newDiv.innerHTML = deleteModel + htmlLink + htmlChapter;
+    
+    // deleteItems();
+    
 }
+
 
 function everyInputsAreOk(){
     let inputs = document.querySelectorAll('.add-model-input');
     let numberOfOkInput = 0;
     for (let i = 0; i < inputs.length; i++) {
         const el = inputs[i].value;
-        if(el == ''){
-            console.log('not ok');
-        }else{
-            console.log('ok');
+        if(el !== ''){
             numberOfOkInput++
         }
-        if(numberOfOkInput === 4) addModel(inputs[0].value, inputs[1].value, inputs[2].value, inputs[3].value)
+        if(numberOfOkInput === 4) {
+            structurModel(inputs[0].value, inputs[2].value, inputs[1].value, inputs[3].value); 
+            deleteItems();
+        }
     };
 };
 
@@ -67,21 +65,11 @@ function downloadJson() {
         actu = document.querySelectorAll('.chapter')[i].value;
         
         json.push({'title': title, 'link': link, 'image': image, 'actu': actu})
-        // console.log('title: ', title, '// \\link: ', link, '// \\image: ', image, '// \\chapitre actuelle: ', actu)
     }
-    console.log(json)
     let strJson, jsonFinal
     strJson = JSON.stringify(json)
-    console.log(strJson)
     jsonFinal = JSON.parse(strJson)
-    console.log(jsonFinal)
 
-
-    
-  
-    // console.log('ok')
-
-    
     let a = document.createElement('a');
     a.setAttribute('href', "data:text/plain;charset=utf-8,"+encodeURIComponent(strJson));
     a.setAttribute('download', 'data.json');
@@ -106,15 +94,17 @@ function searchBar() {
 }
 function deleteItems(){
     let deleteItems = document.querySelectorAll('.delete')
-    console.log(deleteItems)
     for (let i = 0; i < deleteItems.length; i++) {
         const el = deleteItems[i];
-        el.addEventListener('click', (click) => {
-            let elToDel = click.path[1]
-            let parentElToDel = elToDel.parentElement
-            parentElToDel.removeChild(elToDel)
-        })
         
+        el.addEventListener('click', (click) => {
+            let confirm = window.confirm('😮 es-tu sur de supprimer ce model ?')
+            if(confirm === true) {
+                let elToDel = click.path[1]
+                let parentElToDel = elToDel.parentElement
+                parentElToDel.removeChild(elToDel)
+            }            
+        })
     }
 
 }
