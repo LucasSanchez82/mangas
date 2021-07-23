@@ -32,9 +32,6 @@ function structurModel(name, image, link, chapter){
     htmlChapter = `<input class='chapter' value=${chapter} type="number">`;
     htmlLink = `<a class='link' href='${link}' target='_blank'> ${htmlName} ${htmlImage} </a>`;
     newDiv.innerHTML = deleteModel + htmlLink + htmlChapter;
-    
-    // deleteItems();
-    
 }
 
 
@@ -49,6 +46,10 @@ function everyInputsAreOk(){
         if(numberOfOkInput === 4) {
             structurModel(inputs[0].value, inputs[2].value, inputs[1].value, inputs[3].value); 
             deleteItems();
+            inputs[0].value = 'undefined';
+            inputs[1].value = 'undefined';
+            inputs[2].value = 'undefined';
+            inputs[3].value = 'undefined';
         }
     };
 };
@@ -92,11 +93,11 @@ function searchBar() {
         }
     }
 }
-function deleteItems(){
+function  deleteItems(){
     let deleteItems = document.querySelectorAll('.delete')
     for (let i = 0; i < deleteItems.length; i++) {
         const el = deleteItems[i];
-        
+                      
         el.addEventListener('click', (click) => {
             let confirm = window.confirm('😮 es-tu sur de supprimer ce model ?')
             if(confirm === true) {
