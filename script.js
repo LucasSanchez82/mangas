@@ -46,10 +46,10 @@ function everyInputsAreOk(){
         if(numberOfOkInput === 4) {
             structurModel(inputs[0].value, inputs[2].value, inputs[1].value, inputs[3].value); 
             deleteItems();
-            inputs[0].value = 'undefined';
-            inputs[1].value = 'undefined';
-            inputs[2].value = 'undefined';
-            inputs[3].value = 'undefined';
+            inputs[0].value = '';
+            inputs[1].value = '';
+            inputs[2].value = '';
+            inputs[3].value = '';
         }
     };
 };
