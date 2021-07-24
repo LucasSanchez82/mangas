@@ -10,10 +10,11 @@
 </head>
 <body>
     <header>  
+        <!-- barre de recherche -->
         <input type="text" id="myInput" onkeyup="searchBar()" placeholder="chercher un titre...">
     </header>
     <main>
-        <!-- create models -->
+        <!-- les champs permettant de creer des divions avec les donnees des mangas/webtoons -->
         <div>
             <input placeholder='name' type="text" class="add-model-input" id="name">
             <input placeholder='link' type="text" class="add-model-input" id="link">
@@ -21,12 +22,20 @@
             <input placeholder='chapter' type="number" class="add-model-input" id="chapter">
         </div>
         
-        <!-- download models -->
+        <!-- Les boutons -->
         <div>
-            <input type="button" value="click" onclick=everyInputsAreOk() >
-            <input type="button" value="download" onclick=downloadJson() >
+            <input type="button" value="ajouter manga" onclick=everyInputsAreOk() >
+            <input type="button" value="sauvegarder les changements" onclick=saveChange() >
+            <input type="button" value="Télécharger les données" onclick=downloadJson() >
         </div>
+        <!-- choisir le type de models: defaut/sauvegarde -->
+        <form name="selectTypeModels">
+            <span>Par défaut</span>
+            <input type="radio" name="radios" class='selectTypeModels' oninput=clearContainer();defaultModels(); />
 
+            <span>Sauvegarde</span>
+            <input type="radio" name="radios" class='selectTypeModels' oninput=clearContainer();loadSaveModel(); />
+            <div id='otherSaves'></div>
         <div id="container"></div>
     </main>
     <script src="script.js"></script>

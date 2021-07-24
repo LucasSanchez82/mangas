@@ -1,11 +1,8 @@
+let defaultDatas;
 function defaultModels() {
-    // générer le truc par defaut
-    fetch('data.json')
-    .then(response => response.json())
-    .then(data => {
-        for (let i = 0; i < data.length; i++) {
-            const el = data[i];
-
+    // génerer le truc par defaut
+    localStorage.setItem('default', true)
+    function contentLoop(el) {
             let  name, chapter, deleteModel;
             deleteModel = "<span class='delete'>X</span>"
             name = el.title;
@@ -14,10 +11,71 @@ function defaultModels() {
             chapter = el.actu;
 
             structurModel(name, image, link, chapter);
+    }
+        // génerer fetch si ce n'est pas déjà fait, sinon => le réutiliser
+    
+    if (defaultDatas !== undefined) {
+        for (let i = 0; i < defaultDatas.length; i++) {
+            contentLoop(defaultDatas[i]);
         }
         deleteItems();
-    });
+    }else{
+        fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+            defaultDatas = data;
+            for (let i = 0; i < defaultDatas.length; i++) {
+                contentLoop(defaultDatas[i]);
+            }
+            deleteItems();
+            return defaultDatas;
+        });
+    }
 }
+
+let datasSave;
+function createNewDatasSave() {
+    let json, model, title, link, image, actu;
+    model = document.querySelectorAll('.model')
+    json = []
+    for (let i = 0; i < model.length; i++) {
+        title = document.querySelectorAll('.title')[i].innerText;
+        link = document.querySelectorAll('.link')[i].href;
+        image = document.querySelectorAll('.illustration')[i].src;
+        actu = document.querySelectorAll('.chapter')[i].value;
+        
+        json.push({'title': title, 'link': link, 'image': image, 'actu': actu})
+    }
+    return datasSave = json;
+}
+
+
+function loadSaveModel() {
+    localStorage.setItem('default', false)
+    let datasStorage = JSON.parse(localStorage.getItem('theSave'))
+    for (let i = 0; i < datasStorage.length; i++) {
+        const el = datasStorage[i];
+
+        let  name, chapter, deleteModel;
+        deleteModel = "<span class='delete'>X</span>"
+        name = el.title;
+        image = el.image;
+        link = el.link;
+        chapter = el.actu;
+
+        structurModel(name, image, link, chapter);
+    }
+    deleteItems();
+}
+
+
+function saveChange() {
+    createNewDatasSave();
+    strJson = JSON.stringify(datasSave);
+    localStorage.setItem('theSave', strJson);
+}
+
+
 function structurModel(name, image, link, chapter){
     let localisation, createDiv, newDiv, deleteModel;
     deleteModel = "<span class='delete'>X</span>"
@@ -33,6 +91,8 @@ function structurModel(name, image, link, chapter){
     htmlLink = `<a class='link' href='${link}' target='_blank'> ${htmlName} ${htmlImage} </a>`;
     newDiv.innerHTML = deleteModel + htmlLink + htmlChapter;
 }
+
+
 
 
 function everyInputsAreOk(){
@@ -54,22 +114,10 @@ function everyInputsAreOk(){
     };
 };
 
+
 function downloadJson() {
-    let json, model, title, link, image, actu;
-    model = document.querySelectorAll('.model')
-    json = []
-    for (let i = 0; i < model.length; i++) {
-        let el = model[i];
-        title = document.querySelectorAll('.title')[i].innerText;
-        link = document.querySelectorAll('.link')[i].href;
-        image = document.querySelectorAll('.illustration')[i].src;
-        actu = document.querySelectorAll('.chapter')[i].value;
-        
-        json.push({'title': title, 'link': link, 'image': image, 'actu': actu})
-    }
-    let strJson, jsonFinal
-    strJson = JSON.stringify(json)
-    jsonFinal = JSON.parse(strJson)
+    createNewDatasSave();
+    let strJson = JSON.stringify(datasSave);
 
     let a = document.createElement('a');
     a.setAttribute('href', "data:text/plain;charset=utf-8,"+encodeURIComponent(strJson));
@@ -109,5 +157,38 @@ function  deleteItems(){
     }
 
 }
-defaultModels();
 
+
+function clearContainer(){
+    document.querySelector('#container').innerHTML = null
+}
+
+if(localStorage.getItem('default') != undefined){
+    if(localStorage.getItem('default') === "true"){
+        document.querySelectorAll('.selectTypeModels')[0].click()
+    }else{
+        document.querySelectorAll('.selectTypeModels')[1].click()
+    }
+}
+
+////////////// TESTS ///////////////
+/*
+function otherSaves(){
+    document.querySelector('#otherSaves').innerHTML = ''
+    for (let i = 1; i < (localStorage.length - 1)/2; i++) {
+        document.querySelector('#otherSaves').innerHTML += `<span> save${i}: ${localStorage.getItem(`save${i}date`)} </span>`;
+        
+    }
+}
+let counter = 1;
+function saveChange() {
+    createNewDatasSave();
+    strJson = JSON.stringify(datasSave);
+    localStorage.setItem('theSave', strJson);
+    localStorage.setItem('save' + counter, strJson)
+    localStorage.setItem('save' + counter + 'date', Date())
+    otherSaves();
+    return counter++
+}
+otherSaves();
+*/

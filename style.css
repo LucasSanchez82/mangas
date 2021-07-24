@@ -76,6 +76,17 @@ img{
     animation: buttonAnimation 0.8s ease-in-out;
 }
 
+#otherSaves{
+    display: flex;
+    flex-direction: column;
+}
+#otherSaves span {
+    margin: 5px;
+    padding: 2px 2px 2px 16px;
+    border-radius: 4px;
+    background-color: rgb(98, 101, 136);
+    font-size: 17px;
+}
 
 #myInput{
 
