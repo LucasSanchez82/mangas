@@ -5,6 +5,7 @@
 }
 body{
     padding: 15px;
+    background-color: rgb(78, 82, 117);
 }
 #container{
     display: flex;
@@ -26,10 +27,7 @@ body{
     margin: 0;
     padding: 0;
 }
-body{
-    background-color: rgb(78, 82, 117);
-    
-}
+
 .chapter{
     max-width: 50px;
     margin: 10px 0;
@@ -109,14 +107,26 @@ img{
 }
 input{
     cursor: pointer;
-    width: 75px;
-    height: 20px;
+    padding: 5px;
+    height: 30px;
     margin: 5px;
     text-align: center;
     border-radius: 5px;
 
 }
+#buttons-container input[type='button']{
+    background-color: rgb(240, 240, 240);
 
+}
+#buttons-container{
+    display: flex;
+    flex-flow: row wrap;
+    margin: 25px 15% 25px 15%;
+    padding: 5px;
+    justify-content: space-around;
+    background-color: rgb(67, 67, 107);
+    border-radius: 5px;
+}
 @keyframes buttonAnimation{
     0% {
         transform: scale(1);
