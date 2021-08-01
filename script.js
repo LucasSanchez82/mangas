@@ -86,7 +86,7 @@ function structurModel(name, image, link, chapter){
     
     let htmlLink, htmlName, htmlImage, htmlChapter;
     htmlName = `<h2 class='title'> ${name} </h2>`;
-    htmlImage = `<img class='illustration' src='${image}' alt="${name}" />`;
+    htmlImage = `<div class='container-image' style="background-image: url('${image}');"></div>`;
     htmlChapter = `<input class='chapter' value=${chapter} type="number">`;
     htmlLink = `<a class='link' href='${link}' target='_blank'> ${htmlName} ${htmlImage} </a>`;
     newDiv.innerHTML = deleteModel + htmlLink + htmlChapter;

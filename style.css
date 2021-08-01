@@ -37,6 +37,8 @@ body{
     background-color: rgb(78, 82, 117);
     border: none;
     border-radius: 10px;
+    position: relative;
+    bottom: 0px;
 }
 .delete{
     cursor: pointer;
@@ -47,6 +49,7 @@ body{
 }
 .model{
     order: 5;
+    height: 187px;
     width: calc(25% - 3 * 2px);
     flex-direction: column;
     justify-content: space-between;
@@ -55,6 +58,15 @@ body{
     margin: 3px;
     background-color: rgb(33, 31, 54);
     font-size: 12px;
+    overflow: hidden;
+}
+.container-image{
+    width: 130px;
+    height: 64px;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: top;
+    background-size: 130px auto;
 }
 a{
     color: aliceblue;
