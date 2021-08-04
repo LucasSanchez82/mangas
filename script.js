@@ -6,10 +6,9 @@ function defaultModels() {
             let  name, chapter, deleteModel;
             deleteModel = "<span class='delete'>X</span>"
             name = el.title;
-            image = el.image;
             link = el.link;
             chapter = el.actu;
-
+            image = el.image;
             structurModel(name, image, link, chapter);
     }
         // génerer fetch si ce n'est pas déjà fait, sinon => le réutiliser
@@ -41,7 +40,7 @@ function createNewDatasSave() {
     for (let i = 0; i < model.length; i++) {
         title = document.querySelectorAll('.title')[i].innerText;
         link = document.querySelectorAll('.link')[i].href;
-        image = document.querySelectorAll('.illustration')[i].src;
+        image = document.querySelectorAll('.container-image')[i].style.backgroundImage.split('\"')[1];
         actu = document.querySelectorAll('.chapter')[i].value;
         
         json.push({'title': title, 'link': link, 'image': image, 'actu': actu})
