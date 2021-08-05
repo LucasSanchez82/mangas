@@ -130,12 +130,14 @@ input{
     position: absolute;
     top: 0;
     right: 0;
+}
+#pop-up{
     border: 3px solid rgb(66, 66, 179);
     border-radius: 5px;
-}
-.pop-up{
     color: rgb(113, 126, 172);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    animation: pop-up-animation 0.5s linear 0s infinite alternate;
+
 }
 #buttons-container input[type='button']{
     background-color: rgb(240, 240, 240);
@@ -149,6 +151,14 @@ input{
     justify-content: space-around;
     background-color: rgb(67, 67, 107);
     border-radius: 5px;
+}
+@keyframes pop-up-animation {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
 }
 @keyframes buttonAnimation{
     0% {

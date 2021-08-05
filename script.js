@@ -69,10 +69,14 @@ function loadSaveModel() {
 
 
 function saveChange() {
+    let texte = 'sauvegardé 👌';
     createNewDatasSave();
     strJson = JSON.stringify(datasSave);
     localStorage.setItem('theSave', strJson);
-    
+    document.querySelector('#pop-up-container').innerHTML = '<p id="pop-up">' + texte + '</p>'
+    setTimeout(() => {
+        document.querySelector('#pop-up-container').removeChild(document.querySelector('#pop-up'))
+    }, 500);
 }
 
 
