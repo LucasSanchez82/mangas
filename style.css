@@ -62,7 +62,8 @@ body{
 }
 .container-image{
     width: 130px;
-    height: 64px;
+    height: 55px;
+    margin-top: 10px;
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: top;
@@ -132,9 +133,13 @@ input{
     right: 0;
 }
 #pop-up{
-    border: 3px solid rgb(66, 66, 179);
+    margin: 5px 15px;
+    text-align: center;
+    min-width: 200px;
+    min-height: 20px;
     border-radius: 5px;
-    color: rgb(113, 126, 172);
+    color: #ffffff;
+    background-color: rgb(83, 109, 223);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     animation: pop-up-animation 2s linear 0s infinite alternate;
 
