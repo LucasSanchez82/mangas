@@ -126,6 +126,17 @@ input{
     border-radius: 5px;
 
 }
+#pop-up-container{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 3px solid rgb(66, 66, 179);
+    border-radius: 5px;
+}
+.pop-up{
+    color: rgb(113, 126, 172);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 #buttons-container input[type='button']{
     background-color: rgb(240, 240, 240);
 

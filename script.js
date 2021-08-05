@@ -72,6 +72,7 @@ function saveChange() {
     createNewDatasSave();
     strJson = JSON.stringify(datasSave);
     localStorage.setItem('theSave', strJson);
+    
 }
 
 
