@@ -136,7 +136,7 @@ input{
     border-radius: 5px;
     color: rgb(113, 126, 172);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    animation: pop-up-animation 0.5s linear 0s infinite alternate;
+    animation: pop-up-animation 2s linear 0s infinite alternate;
 
 }
 #buttons-container input[type='button']{

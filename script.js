@@ -76,7 +76,7 @@ function saveChange() {
     document.querySelector('#pop-up-container').innerHTML = '<p id="pop-up">' + texte + '</p>'
     setTimeout(() => {
         document.querySelector('#pop-up-container').removeChild(document.querySelector('#pop-up'))
-    }, 500);
+    }, 2000);
 }
 
 
