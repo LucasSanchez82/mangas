@@ -69,14 +69,20 @@ function loadSaveModel() {
 
 
 function saveChange() {
+    let timeToDelete = 2;
+
     let texte = 'sauvegardé 👌';
     createNewDatasSave();
     strJson = JSON.stringify(datasSave);
     localStorage.setItem('theSave', strJson);
-    document.querySelector('#pop-up-container').innerHTML = '<p id="pop-up">' + texte + '</p>'
+    document.querySelector('#pop-up-container').innerHTML += '<p class="pop-up">' + texte + '</p>'
     setTimeout(() => {
-        document.querySelector('#pop-up-container').removeChild(document.querySelector('#pop-up'))
-    }, 2000);
+        let parentElement, ElementTodelete
+        ElementTodelete = document.querySelectorAll('.pop-up')[0]
+        parentElement = ElementTodelete.parentElement
+        
+        parentElement.removeChild(ElementTodelete)
+    }, timeToDelete * 1000);
 }
 
 

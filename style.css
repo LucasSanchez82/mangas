@@ -132,7 +132,7 @@ input{
     top: 0;
     right: 0;
 }
-#pop-up{
+.pop-up{
     margin: 5px 15px;
     text-align: center;
     min-width: 200px;
@@ -141,7 +141,7 @@ input{
     color: #ffffff;
     background-color: rgb(83, 109, 223);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    animation: pop-up-animation 2s linear 0s infinite alternate;
+    animation: pop-up-animation 1.5s linear 0.5s infinite alternate;
 
 }
 #buttons-container input[type='button']{
