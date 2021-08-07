@@ -157,7 +157,7 @@ function  deleteItems(){
         const el = deleteItems[i];
                       
         el.addEventListener('click', (click) => {
-            let confirm = window.confirm('😮 es-tu sur de supprimer ce model ?')
+            let confirm = window.confirm('😮 es-tu sur de vouloir supprimer ce model ?')
             if(confirm === true) {
                 let elToDel = click.path[1]
                 let parentElToDel = elToDel.parentElement
