@@ -1,6 +1,6 @@
 let defaultDatas;
 function defaultModels() {
-    // génerer le truc par defaut
+    // génerer le model par defaut
     localStorage.setItem('default', true)
     function contentLoop(el) {
             let  name, chapter, deleteModel;
@@ -180,25 +180,40 @@ if(localStorage.getItem('default') != undefined){
         document.querySelectorAll('.selectTypeModels')[1].click()
     }
 }
-
-////////////// TESTS ///////////////
-/*
-function otherSaves(){
-    document.querySelector('#otherSaves').innerHTML = ''
-    for (let i = 1; i < (localStorage.length - 1)/2; i++) {
-        document.querySelector('#otherSaves').innerHTML += `<span> save${i}: ${localStorage.getItem(`save${i}date`)} </span>`;
-        
+const textarea = document.getElementById("jsonArea");
+textarea.addEventListener("keydown", function(e) {
+    if (e.code === "Enter") {  
+        areaValidate(e);
     }
+});
+function areaValidate(e) {
+    clearContainer()
+    let area = JSON.parse(textarea.value);
+    for (let i = 0; i < area.length; i++) {
+        const el = area[i];
+
+        let  name, chapter, deleteModel;
+        deleteModel = "<span class='delete'>X</span>"
+        name = el.title;
+        image = el.image;
+        link = el.link;
+        chapter = el.actu;
+
+        structurModel(name, image, link, chapter);
+    }
+    deleteItems();
+
 }
-let counter = 1;
-function saveChange() {
-    createNewDatasSave();
-    strJson = JSON.stringify(datasSave);
-    localStorage.setItem('theSave', strJson);
-    localStorage.setItem('save' + counter, strJson)
-    localStorage.setItem('save' + counter + 'date', Date())
-    otherSaves();
-    return counter++
+function pasteArea() {
+    navigator.clipboard.readText().then(text => document.querySelector('textarea').value = text);
 }
-otherSaves();
-*/
+function copyJson() {
+    navigator.clipboard.writeText(
+        JSON.stringify( createNewDatasSave() )
+    )
+    .then(
+        success => console.log("text copied", JSON.stringify( createNewDatasSave() )), 
+        err => console.log("error copying text")
+    );
+}
+

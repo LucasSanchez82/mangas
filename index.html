@@ -22,21 +22,32 @@
             <input placeholder='image' type="text" class="add-model-input" id="image">
             <input placeholder='chapter' type="number" class="add-model-input" id="chapter">
         </div>
-        
+        <div id='area-container'>
+            <textarea name="coller fichier texte json" id="jsonArea" cols="30" rows="10" ></textarea>
+            <div>
+                <input type="button" value="coller" onclick=pasteArea()>
+                <div>
+                    <input type="button" value="✖" onclick='document.querySelector("#jsonArea").value = ""' id='btn-false'>
+                    <input type="button" value="✔" onclick=areaValidate() id='btn-true'>
+                </div>
+            </div>
+        </div>
+
         <!-- Les boutons -->
         <div id='buttons-container'>
             <input type="button" value="ajouter mangas" onclick=everyInputsAreOk() >
             <input type="button" value="sauvegarder les changements" onclick=saveChange() >
             <input type="button" value="Télécharger les données(en .JSON)" onclick=downloadJson() >
+            <input type="button" value="copier le json dans le presse-papier" onclick=copyJson()>
         </div>
         <!-- choisir le type de models: defaut/sauvegarde -->
         <form name="selectTypeModels">
             <span>Par défaut</span>
             <input type="radio" name="radios" class='selectTypeModels' oninput=clearContainer();defaultModels(); />
 
-            <span>Sauvegarde</span>
+            <span>Sauvegarde local</span>
             <input type="radio" name="radios" class='selectTypeModels' oninput=clearContainer();loadSaveModel(); />
-            <div id='otherSaves'></div>
+            
         <div id="container"></div>
     </main>
     <script src="script.js"></script>

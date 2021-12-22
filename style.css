@@ -86,7 +86,28 @@ img{
 .model:hover{
     animation: buttonAnimation 0.8s ease-in-out;
 }
-
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+textarea{
+    border-radius: 5px;
+    margin: 10px;
+    width: 50%;
+}
+#area-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#btn-true{
+    background-color: rgb(206, 243, 199);
+}
+#btn-false{
+    background-color: rgb(209, 162, 162);
+}
 #otherSaves{
     display: flex;
     flex-direction: column;
