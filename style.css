@@ -8,6 +8,7 @@ body{
     background-color: rgb(78, 82, 117);
 }
 #container{
+    width: 98vw;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
