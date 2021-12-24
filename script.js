@@ -202,8 +202,9 @@ function areaValidate(e) {
         structurModel(name, image, link, chapter);
     }
     deleteItems();
-
+    document.querySelector("#jsonArea").value = ""
 }
+
 function pasteArea() {
     navigator.clipboard.readText().then(text => document.querySelector('textarea').value = text);
 }

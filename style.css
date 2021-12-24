@@ -96,7 +96,7 @@ main{
 textarea{
     border-radius: 5px;
     margin: 10px;
-    width: 50%;
+    width: 70vw;
 }
 #area-container{
     display: flex;
