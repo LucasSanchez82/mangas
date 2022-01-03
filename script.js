@@ -161,12 +161,12 @@ function  deleteAllItems(){
     for (let i = 0; i < deleteItems.length; i++) {
         const el = deleteItems[i];
 
-        deleteItems(el)        
+        deleteSpecificItems(el)        
     }
 
 }
 
-function deleteItems(el) {
+function deleteSpecificItems(el) {
     el.addEventListener('click', (click) => {
         let confirm = window.confirm('😮 es-tu sur de vouloir supprimer ce model ?')
         if(confirm === true) {
