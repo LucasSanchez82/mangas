@@ -17,7 +17,7 @@ function defaultModels() {
         for (let i = 0; i < defaultDatas.length; i++) {
             contentLoop(defaultDatas[i]);
         }
-        deleteItems();
+        deleteAllItems();
     }else{
         fetch('data.json')
         .then(response => response.json())
@@ -26,7 +26,7 @@ function defaultModels() {
             for (let i = 0; i < defaultDatas.length; i++) {
                 contentLoop(defaultDatas[i]);
             }
-            deleteItems();
+            deleteAllItems();
             return defaultDatas;
         });
     }
@@ -64,17 +64,13 @@ function loadSaveModel() {
 
         structurModel(name, image, link, chapter);
     }
-    deleteItems();
+    deleteAllItems();
 }
 
-
-function saveChange() {
+function infoBox(txt) {
     let timeToDelete = 2;
 
-    let texte = 'sauvegardé 👌';
-    createNewDatasSave();
-    strJson = JSON.stringify(datasSave);
-    localStorage.setItem('theSave', strJson);
+    let texte = txt;
     document.querySelector('#pop-up-container').innerHTML += '<p class="pop-up">' + texte + '</p>'
     setTimeout(() => {
         let parentElement, ElementTodelete
@@ -83,6 +79,13 @@ function saveChange() {
         
         parentElement.removeChild(ElementTodelete)
     }, timeToDelete * 1000);
+}
+function saveChange() {
+    createNewDatasSave();
+    strJson = JSON.stringify(datasSave);
+    localStorage.setItem('theSave', strJson);
+
+    infoBox('sauvegardé 👌')
 }
 
 
@@ -100,6 +103,7 @@ function structurModel(name, image, link, chapter){
     htmlChapter = `<input class='chapter' value=${chapter} type="number">`;
     htmlLink = `<a class='link' href='${link}' target='_blank'> ${htmlName} ${htmlImage} </a>`;
     newDiv.innerHTML = deleteModel + htmlLink + htmlChapter;
+    deleteItems(newDiv.querySelector('.delete'))
 }
 
 
@@ -115,11 +119,12 @@ function everyInputsAreOk(){
         }
         if(numberOfOkInput === 4) {
             structurModel(inputs[0].value, inputs[2].value, inputs[1].value, inputs[3].value); 
-            deleteItems();
+            // deleteAllItems();
             inputs[0].value = '';
             inputs[1].value = '';
             inputs[2].value = '';
             inputs[3].value = '';
+            infoBox('ajout d\'une box manga👌')
         }
     };
 };
@@ -151,23 +156,26 @@ function searchBar() {
         }
     }
 }
-function  deleteItems(){
+function  deleteAllItems(){
     let deleteItems = document.querySelectorAll('.delete')
     for (let i = 0; i < deleteItems.length; i++) {
         const el = deleteItems[i];
-                      
-        el.addEventListener('click', (click) => {
-            let confirm = window.confirm('😮 es-tu sur de vouloir supprimer ce model ?')
-            if(confirm === true) {
-                let elToDel = click.path[1]
-                let parentElToDel = elToDel.parentElement
-                parentElToDel.removeChild(elToDel)
-            }            
-        })
+
+        deleteItems(el)        
     }
 
 }
 
+function deleteItems(el) {
+    el.addEventListener('click', (click) => {
+        let confirm = window.confirm('😮 es-tu sur de vouloir supprimer ce model ?')
+        if(confirm === true) {
+            let elToDel = click.path[1]
+            let parentElToDel = elToDel.parentElement
+            parentElToDel.removeChild(elToDel)
+        }            
+    })
+}
 
 function clearContainer(){
     document.querySelector('#container').innerHTML = null
@@ -201,7 +209,7 @@ function areaValidate(e) {
 
         structurModel(name, image, link, chapter);
     }
-    deleteItems();
+    deleteAllItems();
     document.querySelector("#jsonArea").value = ""
 }
 
@@ -213,7 +221,7 @@ function copyJson() {
         JSON.stringify( createNewDatasSave() )
     )
     .then(
-        success => console.log("text copied", JSON.stringify( createNewDatasSave() )), 
+        success => infoBox('texte copié 👌'), 
         err => console.log("error copying text")
     );
 }
