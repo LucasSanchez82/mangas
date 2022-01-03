@@ -103,7 +103,7 @@ function structurModel(name, image, link, chapter){
     htmlChapter = `<input class='chapter' value=${chapter} type="number">`;
     htmlLink = `<a class='link' href='${link}' target='_blank'> ${htmlName} ${htmlImage} </a>`;
     newDiv.innerHTML = deleteModel + htmlLink + htmlChapter;
-    deleteItems(newDiv.querySelector('.delete'))
+    deleteSpecificItems(newDiv.querySelector('.delete'))
 }
 
 
